@@ -1,0 +1,107 @@
+#!/usr/sh
+
+# ##################################################################
+# dock
+# ##################################################################
+
+# wipe all default apps from the dock
+defaults write com.apple.dock persistent-apps -array
+
+# autohide the dock
+defaults write com.apple.dock "autohide" -bool "true"
+
+# turn off show recents
+defaults write com.apple.dock "show-recents" -bool "false"
+
+# put dock on left
+defaults write com.apple.Dock orientation left 
+
+# disable launch animation
+defaults write com.apple.dock launchanim -bool false
+
+# disable hot corners
+defaults write com.apple.dock wvous-tl-corner -int 0
+defaults write com.apple.dock wvous-bl-corner -int 0
+defaults write com.apple.dock wvous-tr-corner -int 0
+defaults write com.apple.dock wvous-br-corner -int 0
+
+# restart dock to apply changes
+killall Dock
+
+
+
+# ##################################################################
+# finder
+# ##################################################################
+# show path bar
+defaults write com.apple.finder "ShowPathbar" -bool "true"
+
+# show scroll bar
+defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+
+# show all files
+defaults write com.apple.finder "AppleShowAllFiles" -bool "true"
+
+# allow quititing via ⌘ + Q
+defaults write com.apple.finder QuitMenuItem -bool true
+
+# disable warning when changing file ext
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+# disable warning when emptying trash
+defaults write com.apple.finder WarnOnEmptyTrash -bool false
+
+# hide menu bar
+defaults write NSGlobalDomain _HIHideMenuBar -bool true
+
+killall Finder
+
+
+
+# ##################################################################
+# peripherals
+# ##################################################################
+# keyboard repeat rate
+defaults write -g InitialKeyRepeat -int 10 # gui minimum is 15 (225 ms)
+defaults write -g KeyRepeat -int 1 # gui minimum is 2 (30 ms)
+
+# trackpad tap to click
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
+
+
+# ##################################################################
+# display
+# ##################################################################
+# disable application quarantine
+defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+# disable screenshot shadow
+defaults write com.apple.screencapture "disable-shadow" -bool "false"
+
+echo "running sudo killall cfprefsd to clear system preferences cache"
+sudo killall cfprefsd
+
+# save screenshots in png format
+defaults write com.apple.screencapture type -string "png"
+
+# ##################################################################
+# energy
+# ##################################################################
+# disable machine sleep while charging
+echo "disabling machine sleep while charging."
+echo "please enter password:"
+sudo pmset -c sleep 0
+
+# remove the sleep image file to save disk space
+sudo rm /private/var/vm/sleepimage
+# create a zero-byte file instead…
+sudo touch /private/var/vm/sleepimage
+# …and make sure it can’t be rewritten
+sudo chflags uchg /private/var/vm/sleepimage
+
+# require password immediately after sleep or screen saver begins
+defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPasswordDelay -int 0

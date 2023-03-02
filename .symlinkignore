@@ -1,0 +1,6 @@
+.osx
+*.sh
+.symlinkignore
+.git
+README.md
+

@@ -1,0 +1,38 @@
+# configure scripting addition
+# the below only works if yabai is configured to run without password
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+# core
+yabai -m config layout                       bsp
+yabai -m config external_bar 		     all:35:0
+
+# padding
+yabai -m config top_padding                  20
+yabai -m config bottom_padding               20
+yabai -m config left_padding                 20
+yabai -m config right_padding                20
+yabai -m config window_gap                   20
+
+# window
+yabai -m config active_window_opacity        1.0
+yabai -m config normal_window_opacity        0.90
+
+# border
+yabai -m config window_border                on
+yabai -m config window_border_hidpi          off
+yabai -m config window_border_blur           off
+
+yabai -m config active_window_border_color   0XFF006A3A
+yabai -m config window_border_width          3
+
+# ignore applications
+yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^Activity Monitor$" manage=off
+yabai -m rule --add app="^Calculator$" manage=off
+
+yabai -m rule --add app="^Karabiner-Elements$" manage=off
+yabai -m rule --add app="^Alfred Preferences$" manage=off
+yabai -m rule --add app="^Spotify$" manage=off
