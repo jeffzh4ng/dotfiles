@@ -108,6 +108,8 @@ brew install --cask font-sf-mono-nerd-font
 brew install --cask alacritty
 brew install fish
 brew install starship
+brew install zoxide
+brew install fzf
 brew install tmux
 brew install neovim
 
