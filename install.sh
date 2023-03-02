@@ -110,3 +110,13 @@ brew install fish
 brew install starship
 brew install tmux
 brew install neovim
+
+# ##############################################################################
+# development
+# ##############################################################################
+install_fisher="curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher"
+fish -c "$install_fisher"
+fish -c "fisher install jorgebucaran/nvm.fish"
+fish -c "nvm install lts"
+set --universal nvm_default_version lts
+brew install pnpm
