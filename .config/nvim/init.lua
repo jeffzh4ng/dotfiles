@@ -138,6 +138,14 @@ require('lazy').setup({
     end,
   },
 
+  {
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim"
+    }
+  }
+
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -259,6 +267,10 @@ require('telescope').setup {
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
 
+-- Enable the telescope-file-browser extension
+require("telescope").load_extension "file_browser"
+
+
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
@@ -275,8 +287,14 @@ vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
-
-
+-- vim.keymap.set('n', '<leader>fb',  "<cmd>lua require('telescope').extensions.file_browser.file_browser()<cr>", { desc = '[F]ile [B]rowser' })
+vim.keymap.set('n', '<leader>fb', function()
+  require('telescope').extensions.file_browser.file_browser({
+    path = vim.fn.expand("%:p:h"),
+    hidden = true,
+    select_buffer = true
+  })
+end, { desc = '[F]ile [B]rowser' })
 
 
 
