@@ -33,6 +33,8 @@ yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^Preview$" manage=off
 yabai -m rule --add app="^Activity Monitor$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^App Store$" manage=off
+yabai -m rule --add app="^Notes$" manage=off
 
 yabai -m rule --add app="^Karabiner-Elements$" manage=off
 yabai -m rule --add app="^Alfred Preferences$" manage=off
