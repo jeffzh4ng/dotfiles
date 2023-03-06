@@ -249,7 +249,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
   defaults = {
-    file_ignore_patterns = {"node_modules", ".next", ".git"},
+    file_ignore_patterns = {"node_modules", ".git"},
     mappings = {
       i = {
         ['<C-u>'] = false,
@@ -468,19 +468,6 @@ mason_lspconfig.setup_handlers {
 }
 
 local lspconfig = require('lspconfig')
-lspconfig.emmet_ls.setup({
-    -- on_attach = on_attach,
-    capabilities = capabilities,
-    filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
-    init_options = {
-      html = {
-        options = {
-          -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
-          ["bem.enabled"] = true,
-        },
-      },
-    }
-})
 
 
 

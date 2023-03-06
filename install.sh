@@ -32,49 +32,6 @@ brew install --cask --no-quarantine little-snitch
 # ##############################################################################
 # workflow management
 # ##############################################################################
-
-# status bar
-brew install --cask --no-quarantine ubersicht
-git clone https://github.com/Jean-Tinland/simple-bar $HOME/Library/Application\ Support/Übersicht/widgets/simple-bar
-
-
-# | adding ubersicht to launchd
-# |
-# |
-# |
-# |
-PLIST_NAME="com.ubersicht.startup"
-PLIST_PATH="$HOME/Library/LaunchAgents/$PLIST_NAME.plist"
-APP_PATH="/Applications/Übersicht.app/Contents/MacOS/Übersicht"
-
-# Create the plist file
-cat << EOF > "$PLIST_PATH"
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-   <key>Label</key>
-   <string>$PLIST_NAME</string>
-   <key>ProgramArguments</key>
-   <array>
-       <string>$APP_PATH</string>
-   </array>
-   <key>RunAtLoad</key>
-   <true/>
-</dict>
-</plist>
-EOF
-
-# load the plist file into launchd
-launchctl load "$PLIST_PATH"
-
-# |
-# |
-# |
-# |
-# | done adding ubersicht to launchd
-
-
 # windows
 brew install koekeishiya/formulae/yabai
 brew install koekeishiya/formulae/skhd
@@ -110,15 +67,22 @@ brew install fish
 brew install starship
 brew install zoxide
 brew install fzf
+
 brew install tmux
 brew install neovim
 
 # ##############################################################################
 # development
 # ##############################################################################
+
+# node
 install_fisher="curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher"
 fish -c "$install_fisher"
 fish -c "fisher install jorgebucaran/nvm.fish"
 fish -c "nvm install lts"
-set --universal nvm_default_version lts
+# set --universal nvm_default_version lts
 brew install pnpm
+
+# ocaml
+brew install opam
+opam init --bare -a -y

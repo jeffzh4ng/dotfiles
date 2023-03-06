@@ -5,7 +5,7 @@ sudo yabai --load-sa
 
 # core
 yabai -m config layout                       bsp
-yabai -m config external_bar 		     all:35:0
+# yabai -m config external_bar 		     all:35:0
 
 # padding
 yabai -m config top_padding                  20
@@ -35,6 +35,9 @@ yabai -m rule --add app="^Activity Monitor$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^App Store$" manage=off
 yabai -m rule --add app="^Notes$" manage=off
+yabai -m rule --add app="^Messages$" manage=off
+yabai -m rule --add app="^Signal$" manage=off
+yabai -m rule --add app="^Simulator$" manage=off
 
 yabai -m rule --add app="^Karabiner-Elements$" manage=off
 yabai -m rule --add app="^Alfred Preferences$" manage=off
