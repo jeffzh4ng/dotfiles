@@ -138,6 +138,8 @@ require('lazy').setup({
     end,
   },
 
+  'JoosepAlviste/nvim-ts-context-commentstring',
+
   {
     "nvim-telescope/telescope-file-browser.nvim",
     dependencies = {
@@ -318,6 +320,12 @@ require('nvim-treesitter.configs').setup {
       node_decremental = '<M-space>',
     },
   },
+
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
+  },
+
   textobjects = {
     select = {
       enable = true,
@@ -366,6 +374,10 @@ require('nvim-treesitter.configs').setup {
 
 
 
+-- configure Comment
+require('Comment').setup {
+  pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+}
 
 
 -- Diagnostic keymaps
