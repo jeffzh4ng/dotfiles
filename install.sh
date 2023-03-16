@@ -82,6 +82,7 @@ fish -c "fisher install jorgebucaran/nvm.fish"
 fish -c "nvm install lts"
 # set --universal nvm_default_version lts
 brew install pnpm
+brew install yarn
 
 # ocaml
 brew install opam
