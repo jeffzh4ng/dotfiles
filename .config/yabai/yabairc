@@ -36,6 +36,8 @@ yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^App Store$" manage=off
 yabai -m rule --add app="^Notes$" manage=off
 yabai -m rule --add app="^Messages$" manage=off
+yabai -m rule --add app="^FaceTime$" manage=off
+yabai -m rule --add app="^Photo Booth$" manage=off
 yabai -m rule --add app="^Signal$" manage=off
 yabai -m rule --add app="^Simulator$" manage=off
 
