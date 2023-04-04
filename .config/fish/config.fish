@@ -11,6 +11,7 @@ set PATH /usr/local/bin $PATH
 abbr --add g 'git'
 abbr --add gpb 'git push origin master && git push mirror master'
 abbr --add v 'nvim'
+abbr --add y 'yarn'
 
 
 
