@@ -70,6 +70,7 @@ brew install fzf
 
 brew install tmux
 brew install neovim
+brew install --cask visual-studio-code
 
 # ##############################################################################
 # development
