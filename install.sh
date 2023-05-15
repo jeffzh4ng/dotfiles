@@ -85,6 +85,9 @@ fish -c "nvm install lts"
 brew install pnpm
 brew install yarn
 
+# rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
 # ocaml
 brew install opam
 opam init --bare -a -y

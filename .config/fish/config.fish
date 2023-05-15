@@ -2,6 +2,7 @@
 # $PATH
 ################################################################################
 set PATH /usr/local/bin $PATH
+set PATH $HOME/.cargo/bin $PATH
 
 
 
@@ -12,6 +13,7 @@ abbr --add g 'git'
 abbr --add gpb 'git push origin master && git push mirror master'
 abbr --add v 'nvim'
 abbr --add y 'yarn'
+abbr -add c 'cargo'
 
 
 
