@@ -1,0 +1,48 @@
+{
+    "window.zoomLevel": 2,
+  
+    "workbench.activityBar.visible": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.editor.enablePreview": false,
+    "workbench.colorTheme": "Dark Forest Theme",
+  
+    "explorer.confirmDragAndDrop": false,
+    "explorer.autoReveal": false,
+    "explorer.confirmDelete": false,
+    "terminal.integrated.defaultProfile.osx": "fish",
+  
+    "editor.wordWrap": "on",
+    "editor.minimap.enabled": false,
+    "editor.inlineSuggest.enabled": true,
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    },
+    "editor.fontFamily": "'MesloLGMDZ Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+  
+    "github.copilot.enable": {
+      "*": true,
+      "plaintext": true,
+      "markdown": false,
+      "scminput": false,
+      "html": false,
+      "rust": false
+    },
+  
+    "[html]": {
+      "editor.defaultFormatter": "vscode.html-language-features"
+    },
+  
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+  
+    "[rust]": {
+      "editor.defaultFormatter": "rust-lang.rust-analyzer",
+      "editor.formatOnSave": true
+    },
+    "rust-analyzer.check.command": "clippy",
+  }
+  

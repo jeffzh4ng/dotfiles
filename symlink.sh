@@ -30,3 +30,7 @@ done
 
 brew services restart yabai
 brew services restart skhd
+
+# vscode settings
+rm -rf ~/Library/Application\ Support/Code/User/settings.json
+ln -s $PWD/settings.json ~/Library/Application\ Support/Code/User/settings.json
