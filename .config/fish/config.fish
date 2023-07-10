@@ -3,6 +3,7 @@
 ################################################################################
 set PATH /usr/local/bin $PATH
 set PATH $HOME/.cargo/bin $PATH
+set GPG_TTY $(tty)
 
 
 
